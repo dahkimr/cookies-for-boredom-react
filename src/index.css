@@ -1,3 +1,21 @@
-#cookie-jar {
-   width: 20%;
+.container {
+   position: relative;
+   width: 40%;
+}
+
+.container .button {
+   position: absolute;
+   z-index: 10;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+#cookie-message {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 100%;
+   z-index: 20;
 }
