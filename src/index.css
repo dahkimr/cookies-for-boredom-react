@@ -1,6 +1,6 @@
 .container {
    position: relative;
-   width: 40%;
+   width: 300px;
 }
 
 .container .button {
@@ -11,11 +11,27 @@
    transform: translate(-50%, -50%);
 }
 
-#cookie-message {
+img.cookie {
    position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
    width: 100%;
-   z-index: 20;
+   z-index: 11;
+}
+
+div.cookie {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 80%;
+   font-size: 1.2em;
+   z-index: 12;
+
+}
+
+.cookie span {
+      padding: 1px 2px;
+      background-color: white;
 }

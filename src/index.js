@@ -6,7 +6,12 @@ class CookieMessage extends React.Component {
 
    render() {
       return (
-         <img id="cookie-message" src={require('./assets/cookie.svg')} />
+         <div>
+            <img class="cookie" src={require('./assets/cookie.svg')} />
+            {/* placeholder message
+            should randomly be taken from database */}
+            <div class="cookie"><span>Draw a watercolour of your dog.</span></div>
+         </div>
       );
    }
 }
@@ -15,14 +20,14 @@ class Site extends React.Component {
 
    constructor(props) {
       super(props);
-      this.state = {showMessage: false};
+      this.state = {showCookie: false};
       this.onJarBtnClick = this.onJarBtnClick.bind(this);
    }
 
    onJarBtnClick(e) {
       e.preventDefault();
       this.setState(state => ({
-         showMessage: true
+         showCookie: true
       }));
    }
 
@@ -34,7 +39,7 @@ class Site extends React.Component {
             <div className="container">
                <img src={require('./assets/cookie_jar.svg')} />
                <button className="button" type="button" onClick={this.onJarBtnClick}>Take</button>
-               <CookieMessage />
+               {this.state.showCookie ? <CookieMessage /> : null}
             </div>
          </div>
       );
