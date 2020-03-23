@@ -21,8 +21,8 @@ class Site extends React.Component {
    onJarBtnClick(e) {
       e.preventDefault();
 
-      // retrive from server
-      fetch("http://localhost:9000/cookie/get")
+      // retreive from server
+      fetch("http://localhost:9000/cookie")
          .then(res => res.text())
          .then(res => this.setState({ apiResponse: res, showCookie: true}));
    }
@@ -117,29 +117,7 @@ class CookieInput extends React.Component {
          value: ''
       };
 
-      this.handleClick = this.handleClick.bind(this);
-      this.handleClickOutside = this.handleClickOutside.bind(this);
       this.handleChange = this.handleChange.bind(this);
-   }
-
-   componentDidMount() {
-      document.addEventListener('mousedown', this.handleClick, false);
-   }
-
-   componentWillUnmount() {
-      document.removeEventListener('mousedown', this.handleClick, false);
-   }
-
-   handleClick(e) {
-      if (this.node.contains(e.target)) {
-         return;
-      }
-
-      this.handleClickOutside();
-   }
-
-   handleClickOutside() {
-      this.props.hideCookie();
    }
 
    handleChange(event) {
@@ -149,7 +127,20 @@ class CookieInput extends React.Component {
    handleSubmit = (event) => {
       event.preventDefault();
       this.setState({value: event.target.value});
-      alert("You are submitting " + this.state.value);
+
+      const requestOptions = {
+         method: "Post",
+         headers: { 'Content-Type': 'application/json' },
+         body: JSON.stringify({ message: this.state.value })
+      }
+
+      fetch("http://localhost:9000/cookie", requestOptions)
+         .then(res => res.text())
+         .then(res => {
+            console.log(res);
+            this.setState({value: ''});
+            this.props.hideCookie();
+         });
    }
 
    render() {
