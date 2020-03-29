@@ -23,8 +23,8 @@ class Site extends React.Component {
 
       // retreive from server
       fetch("http://localhost:9000/cookie")
-         .then(res => res.text())
-         .then(res => this.setState({ apiResponse: res, showCookie: true}));
+         .then(res => res.json())
+         .then(res => this.setState({ apiResponse: res.message, showCookie: true}));
    }
 
    onAddCookieClick(e) {
@@ -137,7 +137,6 @@ class CookieInput extends React.Component {
       fetch("http://localhost:9000/cookie", requestOptions)
          .then(res => res.text())
          .then(res => {
-            console.log(res);
             this.setState({value: ''});
             this.props.hideCookie();
          });
