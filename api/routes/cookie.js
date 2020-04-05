@@ -6,23 +6,31 @@ router.get("/", function(req, res, next) {
 
    CookieMessage.countDocuments().exec(function(err, count) {
 
-      var random = Math.floor(Math.random() * count);
+      if (err) {
+         res.send({err: err.message});
+      }
+      else {
+         var random = Math.floor(Math.random() * count);
 
-      CookieMessage.findOne().skip(random).exec(
-         function(err, result) {
-            console.log(result);
-            console.log(result.message);
-            res.send({message: result.message});
-         }
-      );
+         CookieMessage.findOne().skip(random).exec(
+            function(err, result) {
+               if (err) {
+                  res.send({err: err.message});
+               }
+               else {
+                  res.send({message: result.message});
+               }
+            }
+         );
+      }
    });
 });
 
-router.post("/", function(req, res) {
-   console.log(req.body);
+router.post("/", function(req, res, next) {
+
    CookieMessage.create(req.body).then(function(cookieMessage) {
       res.send(cookieMessage);
-   });
+   }).catch(next);
 });
 
 module.exports = router;

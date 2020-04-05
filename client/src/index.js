@@ -24,7 +24,17 @@ class Site extends React.Component {
       // retreive from server
       fetch("http://localhost:9000/cookie")
          .then(res => res.json())
-         .then(res => this.setState({ apiResponse: res.message, showCookie: true}));
+         .then(res => {
+            if (!res.error) {
+               console.log('cookie was successfully retrieved');
+               this.setState({ apiResponse: res.message, showCookie: true});
+            }
+            else {
+               // show error
+               alert('Error occurred grabbing cookie.');
+               console.log(res.error);
+            }
+         });
    }
 
    onAddCookieClick(e) {
@@ -137,8 +147,16 @@ class CookieInput extends React.Component {
       fetch("http://localhost:9000/cookie", requestOptions)
          .then(res => res.text())
          .then(res => {
-            this.setState({value: ''});
-            this.props.hideCookie();
+            if (!res.error) {
+               console.log('cookie was successfully added');
+               this.setState({value: ''});
+               this.props.hideCookie();
+            }
+            else {
+               // show error
+               alert('Error occurred adding cookie.');
+               console.log(res.error);
+            }
          });
    }
 
