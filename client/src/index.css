@@ -1,14 +1,50 @@
-.container {
-   position: relative;
-   width: 300px;
+body {
+   background-color: #eee4b0;
 }
 
-.container .take-btn {
+.parent-container h1, .parent-container h2 {
+   text-align: center;
+}
+
+.container {
+   position: relative;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 350px;
+}
+
+.cookie-jar {
+   width: 100%;
+}
+
+.take-btn {
    position: absolute;
    z-index: 10;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
+
+   border: none;
+   width: 125px;
+   padding: 7px 0px;
+   background-color: #87562b;
+   color: white;
+   box-shadow: 2px 3px #3d3a37;
+}
+
+.add-btn {
+   position: absolute;
+   z-index: 10;
+   top: 60%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+
+   border: none;
+   width: 125px;
+   padding: 7px 0px;
+   background-color: #87562b;
+   color: white;
+   box-shadow: 2px 3px #3d3a37;
 }
 
 img.cookie {
@@ -50,25 +86,6 @@ input.cookie {
 .cookie span {
       padding: 1px 2px;
       background-color: white;
-}
-
-.cookie-btn-container {
-   position: relative;
-   width: 80px;
-   height: 80px;
-   margin-left: 275px;
-}
-
-img.cookie-btn {
-   position: absolute;
-}
-
-div.cookie-btn {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   color: white;
 }
 
 .hidden {
