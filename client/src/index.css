@@ -1,14 +1,76 @@
-.container {
-   position: relative;
-   width: 300px;
+body {
+   background-color: #eee4b0;
 }
 
-.container .take-btn {
+.heading {
+   margin: 25px 0px 15px 0px;
+   text-align: center;
+   color: #78511f;
+   font-family: Chewy, Arial, sans-serif;
+}
+
+h1, h2 {
+   margin: 0;
+   font-weight: normal;
+}
+
+h1 {
+   font-size: 50px;
+}
+
+h2 {
+   font-size: 30px;
+}
+
+.container {
+   position: relative;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 350px;
+}
+
+.cookie-jar {
+   width: 100%;
+}
+
+.take-btn {
    position: absolute;
    z-index: 10;
-   top: 50%;
+   top: 47%;
    left: 50%;
    transform: translate(-50%, -50%);
+}
+
+.add-btn {
+   position: absolute;
+   z-index: 10;
+   top: 60%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.jar-button {
+   font-family: "Fredoka One", Arial, sans-serif;
+   font-size: 20px;
+   border-color: #edecc6;
+   border-radius: 25px;
+   width: 150px;
+   padding: 7px 0px;
+   background-color: #78511f;
+   color: #f5f5d2;
+}
+
+.jar-button:hover {
+   cursor: pointer;
+   background-color: #734822;
+}
+
+.jar-button:active {
+   background-color: #87562b;
+}
+
+.jar-button:focus {
+   outline: none;
 }
 
 img.cookie {
@@ -20,55 +82,58 @@ img.cookie {
    z-index: 11;
 }
 
-div.cookie {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   width: 80%;
-   font-size: 1.2em;
-   z-index: 12;
-}
-
 textarea.cookie{
    position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-   font-size: 1.2em;
+   font-family: "Fredoka One", Arial, sans-serif;
+   font-size: 18px;
+   color: #613e1b;
    z-index: 12;
+}
+
+textarea {
+   resize: none;
+}
+
+textarea:focus {
+   outline: none;
 }
 
 input.cookie {
    position: absolute;
-   top: 60%;
-   left: 80%;
+   top: 62%;
+   left: 50%;
    transform: translate(-50%, -50%);
    z-index: 13;
+
+   font-family: "Fredoka One", Arial, sans-serif;
+   font-size: 15px;
+   border: none;
+   border-radius: 25px;
+   width: 70px;
+   padding: 5px 0px;
+   background-color: white;
+   color: #613e1b;
+}
+
+input.cookie:hover {
+   cursor: pointer;
+   background-color: #dcdade;
+}
+
+input.cookie:active {
+   background-color: white;
+}
+
+input.cookie:focus {
+   outline: none;
 }
 
 .cookie span {
-      padding: 1px 2px;
-      background-color: white;
-}
-
-.cookie-btn-container {
-   position: relative;
-   width: 80px;
-   height: 80px;
-   margin-left: 275px;
-}
-
-img.cookie-btn {
-   position: absolute;
-}
-
-div.cookie-btn {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   color: white;
+   padding: 1px 2px;
+   background-color: white;
 }
 
 .hidden {
