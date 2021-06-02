@@ -1,5 +1,7 @@
 # cookies-for-boredom-react
 
+Website where randomized activities are given when users click on the jar (built in React and MongoDB).
+
 Run Instructions
 ----------------
 Frontend:  
